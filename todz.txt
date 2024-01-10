@@ -1,0 +1,65 @@
+
+      <View style={styles.rowWrapper}>
+        <View style={{ width: '45%' }}>
+          <RNPickerSelect
+            style={styles.pickerSelectStyles}
+            placeholder={{ label: 'Priority', value: null }}
+            items={priorities}
+            onValueChange={(value) => setPriority(value)}
+          />
+        </View>
+        <View style={{ width: '45%' }}>
+          <RNPickerSelect
+            style={styles.pickerSelectStyles}
+            placeholder={{ label: 'Status', value: null }}
+            items={statuses}
+            onValueChange={(value) => setStatus(value)}
+          />
+        </View>
+      </View>
+      <View style={styles.rowWrapper}>
+        <View style={{ width: '45%' }}>
+          <RNPickerSelect
+            style={styles.pickerSelectStyles}
+            placeholder={{ label: 'Category', value: null }}
+            items={categories}
+            onValueChange={(value) => setCategory(value)}
+          />
+        </View>
+        <View style={{ width: '45%' }}>
+          <Text>Add Date Picker</Text>
+        </View>
+      </View>
+      <Button title="Add Task" onPress={addTask} />
+      <ScrollView style={styles.taskList}>
+        {tasks.map((task, index) => (
+          <Task key={index} task={task} onDelete={() => handleDeleteTask(index)} />
+        ))}
+      </ScrollView>
+    </View>
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  safeContainer: {
+    flex: 1,
+    padding: 20,
+    backgroundColor: '#fff',
+  },
+    container: {
+    flex: 1,
+    paddingTop: 50,
+    backgroundColor: '#fff',
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 5,
+    padding: 10,
+    marginBottom: 10,
+  },
+  task: {
+    marginBottom: 20,
+    borderBottomWidth: 1,
+ 
